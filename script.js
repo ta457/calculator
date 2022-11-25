@@ -20,7 +20,7 @@ const clearNodes = () => {
 const acBtn = (row1, row2) => {
     row2.textContent = "0";
     row1.textContent = "";
-    tempValue = 0;
+    tempValue = null;
     clearNodes();
 }
 const delBtn = (row) => {
@@ -65,6 +65,7 @@ const resolve = (nodes) => {
     return result;
 }
 
+let lastBtn = "";
 buttons.forEach(function(i) {
     i.addEventListener('click', function() {
         let btn = i.textContent;
@@ -87,8 +88,7 @@ buttons.forEach(function(i) {
             }
         }
 
-        
-        if(btn === "=") {
+        if(btn === "=" && lastBtn !== "="){
             nodes.push(toNum(row2.textContent));
             row1.textContent += " " + row2.textContent;
             
@@ -112,14 +112,18 @@ buttons.forEach(function(i) {
         }
 
         if(operators.includes(btn)){
-            if(operators.includes(nodes[nodes.length - 1])){
+            if(row2.textContent === "0" && operators.includes(nodes[nodes.length - 1])){
                 nodes[nodes.length - 1] = btn;
                 update(row1);
             } else {
                 if(finalResult == true) {
                     clear(row1);
                     clearNodes();
-                    nodes.push(tempValue);
+                    if(tempValue !== null) {
+                        nodes.push(tempValue);
+                    } else {
+                        nodes.push(toNum(row2.textContent));
+                    }
                     nodes.push(btn);
                     update(row1);
                     clear(row2);
@@ -134,5 +138,7 @@ buttons.forEach(function(i) {
                 }
             }
         }
+
+        lastBtn = btn;
     });
 });
