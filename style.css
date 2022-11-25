@@ -8,7 +8,7 @@ body {
 }
 
 .flex-center,
-.key {
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,11 +56,11 @@ body {
     flex-wrap: wrap;
 }
 
-.key {
+.btn {
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    background-color: #939196;
+    background-color: #a8a6ac;
     font-size: 24px;
     color: white;
 }
@@ -71,8 +71,8 @@ body {
     background-color: #f7b733 !important;
 }
 
-.key:hover {
-    background-color: #aba9ad;
+.btn:hover {
+    background-color: #b7b4b9;
     cursor: pointer;
 }
 .red:hover {
