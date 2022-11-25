@@ -20,6 +20,7 @@ const clearNodes = () => {
 const acBtn = (row1, row2) => {
     row2.textContent = "0";
     row1.textContent = "";
+    tempValue = 0;
     clearNodes();
 }
 const delBtn = (row) => {
