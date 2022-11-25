@@ -98,6 +98,10 @@ buttons.forEach(function(i) {
             if(resultText.length > 10) {
                 resultText = resultText.substring(0, 10) + "...";
             }
+
+            if(resultText == "Infinity") {
+                resultText = "177013";
+            }
             row2.textContent = resultText;
             finalResult = true;
         }
